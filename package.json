@@ -1,0 +1,17 @@
+{
+  "name": "vuenodeproject",
+  "version": "1.0.0",
+  "description": "Built with Vue and Node",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mapbox-gl": "^0.53.0",
+    "nodemon": "^1.18.9",
+    "vue-mapbox": "^0.1.3"
+  }
+}
