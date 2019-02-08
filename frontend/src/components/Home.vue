@@ -8,6 +8,7 @@
 
 <script>
   import mapboxgl from 'mapbox-gl'
+  import axios from 'axios'
 
   export default {
   name: 'Home',
@@ -16,6 +17,7 @@
     apiKey: String
   },
   mounted() {
+      this.getPoi()
       this.createMap()
   },
   methods: {
@@ -30,6 +32,22 @@
               zoom: 11,
           })
 
+      },
+      //Api request for point of interests
+      getPoi(){
+          //TODO: Update url for endpoint
+          axios.get('http://localhost:4000/poi')
+              .then(res => {
+                  //Display each poi on the map as a popup
+                  res.data.poi.forEach(poi => {
+                      new mapboxgl.Popup({closeButton: false, closeOnClick: false})
+                          .setLngLat([poi.location[0], poi.location[1]])
+                          .setHTML(poi.name+'<br>['+poi.location[0]+', '+poi.location[1]+']')
+                          .addTo(this.map)
+                  })
+
+
+              })
       },
   }
 }
