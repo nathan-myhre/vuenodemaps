@@ -35,7 +35,7 @@
       },
       //Api request for point of interests
       getPoi(){
-          axios.get('http://localhost/poi')
+          axios.get('/poi')
               .then(res => {
                   //Display each poi on the map as a popup
                   res.data.poi.forEach(poi => {
